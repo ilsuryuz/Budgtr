@@ -18,6 +18,6 @@ app.get("/budgets", (req, res) => {
 
 app.get("/budgets/:index", (req, res)=> {
     res.render("show.ejs", {
-        
+        dataIndex: budget[req.params.index]
     })
 })
