@@ -15,7 +15,7 @@ app.get("/budgets", (req, res) => {
 })
 
 // NEW
-app.get("budgets/new", (req, res) => {
+app.get("/budgets/new", (req, res) => {
     res.render("new.ejs", {
         newData: budget,
     })
@@ -23,6 +23,10 @@ app.get("budgets/new", (req, res) => {
 
 // CREATE
 app.post("/budgets", (req, res) => {
+    // separate tags data to an array
+    let tags = req.body.tags.split(',');
+    // set tags in body to an array
+    req.body.tags = tags;
     budget.push(req.body)
     console.log(budget)
     res.redirect("/budgets")
