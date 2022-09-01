@@ -13,8 +13,16 @@
 
 <body>
     <div class="container">
-        <h1>Hello Adult Life</h1>
-
+        <h1>Budgtr</h1>
+        <table>
+            <% for (i=0; i < data.length; i++) { %>
+                <tr>
+                    <td><%=data[i].date%></td>
+                    <td><a href="/budgets/<%=i%>"><%=data[i].name%></a></td>
+                    <td><%=data[i].amount%></td>
+                </tr>
+           <% } %>
+        </table>
     </div>
 </body>
 

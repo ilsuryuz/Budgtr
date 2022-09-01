@@ -10,8 +10,14 @@ app.listen(port, () =>{
 // MIDDLEWARE
 app.use(express.static("Public"))
 app.use(express.urlencoded({extended: false}))
-app.get("/", (req, res) => {
+app.get("/budgets", (req, res) => {
     res.render("index.ejs", {
         data: budget,
+    })
+})
+
+app.get("/budgets/:index", (req, res)=> {
+    res.render("show.ejs", {
+        
     })
 })
