@@ -14,6 +14,10 @@
 <body>
     <div class="container">
         <h1>Budgtr</h1>
+        <% for (i=0; i < data.length; i++) { %>
+        <% money = money+ parseInt(data[i].amount)%>
+        <% } %>
+        <h2 class="money">Ca$hMoney: <%=money%></h2>
         <table>
             <% for (i=0; i < data.length; i++) { %>
                 <tr>
@@ -24,6 +28,13 @@
            <% } %>
         </table>
         <button><a href="/budgets/new/">Add New Item</a></button>
+        <% if (money < 0) { %>
+            <style>.money{background-color: red;}</style>
+        <% } else if (money > 1000) { %>
+            <style>.money{background-color: green;}</style>
+        <% } else { %>
+            <style>.money{background-color: gray;}</style>
+        <% } %>
     </div>
 </body>
 

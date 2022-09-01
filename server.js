@@ -4,6 +4,8 @@ const bodyParser = require("body-parser")
 const app = express();
 const port = 3000;
 
+let bankAcc = 0;
+
 
 // MIDDLEWARE
 app.use(express.static("Public"))
@@ -11,6 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 app.get("/budgets", (req, res) => {
     res.render("index.ejs", {
         data: budget,
+        money: bankAcc,
     })
 })
 
@@ -28,7 +31,7 @@ app.post("/budgets", (req, res) => {
     // set tags in body to an array
     req.body.tags = tags;
     budget.push(req.body)
-    console.log(budget)
+    // console.log(budget)
     res.redirect("/budgets")
 })
 
